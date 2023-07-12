@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+     <title>Form Template</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/nav.css">
+  <link rel="stylesheet" href="css/forms.css">
+  <style>
+      #output{
+          border-radius:5px;
+          min-height:40px;
+          border:1px solid black;
+          width:50%;
+          margin: auto;
+          font-size:x-large;
+      }
+  </style>
+ </head>
+ <body>
+     <header>
+     <h1 class="page-header">Form Template</h1>
+        <nav class="topnav" id="myTopnav">
+            <a href="index.html" class="active">Home</a>
+            <a href="#">Link</a>
+            <a href="#">Link</a>
+            <a href="javascript:void(0);" class="icon" onclick="myFunction()">&#9776;</a>
+        </nav>
+     </header>
+     
+   <main class="wrapper">
+ 
+    <h2 class="subheader">Place form code below:</h2>
+    <div id="output">
+
+    </div>
+    <form method="post" action="" class="main-form">
+      <div>
+        <label for="Input">Input</label><br>
+        <input type="text" name="Input" id="Input" placeholder="Input" required autofocus>
+      </div>
+      <div>
+        <input type="submit" id="submit">
+      </div>
+    </form>
+    <h3>Page Origins</h3>
+    <p>The HTML/CSS comes from Sara Newman's Web Fundamentals class as taught at Seattle Central. This page provides a basis for students to build a responsive portal page.</p>
+    <p>The mobile navigation originates from <a href="https://www.w3schools.com/howto/howto_js_mobile_navbar.asp" target="_blank">W3Schools</a></p>
+    <footer>
+      <p><small>&copy; 2021-<span id="this-year"></span> by 
+          YOUR NAME HERE, All Rights Reserved ~ 
+          <a id="html-checker" href="#" target="_blank">Check HTML</a> ~ 
+          <a id="css-checker" href="#" target="_blank">Check CSS</a></small>
+     </p>
+    </footer>
+  </main>
+  <script src="js/main.js"></script>
+  <script>
+      let mySubmit = document.querySelector("#submit");
+      //console.log(mySubmit);
+
+      mySubmit.addEventListener("click",function(ev){
+            ev.preventDefault();
+            let myInput = document.querySelector("#Input");
+            //alert(myInput.value);
+
+            let myOutput = titleCase(myInput.value);
+
+            document.querySelector("#output").innerHTML = myOutput;
+      });
+
+      function titleCase(str){
+        let myReturn = str.toLowerCase();
+        //myReturn.toUpperCase(); - won't work
+        let firstLetter = str.substring(0,1).toUpperCase();
+        myReturn = myReturn.substring(1);
+        myReturn = firstLetter + myReturn;
+        return myReturn;
+      }
+
+  </script>   
+ </body>
+</html>
